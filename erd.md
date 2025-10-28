@@ -18,7 +18,7 @@ wallet {
     int transaksiId
 }
 
-program {
+product_wallet {
     string name
     int total_amout
     int usersId
@@ -39,10 +39,9 @@ transaksi {
 }
 
 users ||--o{ wallet : memiliki
-users ||--o{ program : mengikuti
+users ||--o{ product_wallet : mengikuti
 users ||--o{ transaksi : melakukan
-categoryProgram ||--o{ program : mengelompokkan
-program ||--o{ wallet : terkait
+categoryProgram ||--o{ product_wallet : mengelompokkan
+product_wallet ||--o{ wallet : terkait
 transaksi ||--o{ wallet : tercatat
-
 ```
