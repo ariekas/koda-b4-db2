@@ -38,10 +38,10 @@ transaksi {
     date updateAt
 }
 
-users ||--o{ wallet : memiliki
+users ||--o| wallet : memiliki
 users ||--o{ product_wallet : mengikuti
 users ||--o{ transaksi : melakukan
-categoryProgram ||--o{ product_wallet : mengelompokkan
-product_wallet ||--o{ wallet : terkait
-transaksi ||--o{ wallet : tercatat
+categoryProgram ||--|{ product_wallet : mengelompokkan
+product_wallet |o--|| wallet : terkait
+transaksi }o--|| wallet : tercatat
 ```
