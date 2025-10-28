@@ -1,35 +1,48 @@
 ```mermaid
 erDiagram
 
-user{
-    string nama
-    string nomer_hp
-    string alamat
-    string pin
-}
-
-wallet{
-    string nama
-    int jumlah_uang
-}
-
-transaksi{
-    string nomer_transaksi
-    int jumlah_uang
-    date transaksi_dibuat
-    string nama_user
-    string nama_bank
-    string tipe
-}
-
-
-history{
+users {
     string name
-    string nomer_history
-    date tanggal_transaksi
-    int jumlah_uang
+    string pin
+    string pic
+    string email
+    string address
+    string phone_number
 }
-user||--o|wallet : masuk
-wallet||--o{transaksi : membuat
-wallet||--o{history : data
+
+wallet {
+    string name
+    int total_amount
+    int usersId
+    int programId
+    int transaksiId
+}
+
+program {
+    string name
+    int total_amout
+    int usersId
+    int categoryProgramId
+}
+
+categoryProgram {
+    string name
+}
+
+transaksi {
+    string no_transaksi
+    int usersId
+    int total_amout
+    string type
+    date createAt
+    date updateAt
+}
+
+users ||--o{ wallet : memiliki
+users ||--o{ program : mengikuti
+users ||--o{ transaksi : melakukan
+categoryProgram ||--o{ program : mengelompokkan
+program ||--o{ wallet : terkait
+transaksi ||--o{ wallet : tercatat
+
 ```
