@@ -2,10 +2,18 @@
 erDiagram
 
 users {
-    string name
+    INT id
+    string fullname
+    STRINg email
+    STRING password
+    INT profileId 
+    
+}
+
+profile{
+    INT Id
     string pin
     string pic
-    string email
     string address
     string phone_number
 }
@@ -44,4 +52,5 @@ users ||--o{ transaksi : melakukan
 categoryProgram ||--|{ product_wallet : mengelompokkan
 product_wallet |o--|| wallet : terkait
 transaksi }o--|| wallet : tercatat
+users||--||profile : Mempunyai
 ```
